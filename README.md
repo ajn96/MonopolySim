@@ -1,0 +1,1 @@
+Monte carlo simulator for Monopoly. This will tell you the average likelihood of any given tile being landed on. This includes special actions, like community service or chance.
