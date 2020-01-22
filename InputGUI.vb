@@ -30,21 +30,25 @@
     End Sub
 
     Private Sub UpdateTextBoxes()
+        'get the index values
+        Dim hitCounts As New List(Of Integer)
+        For Each tile In sim.board
+            hitCounts.Add(tile.NumHits)
+        Next
+        hitCounts.Sort()
         Dim controlString As String
-        Dim sortedList As List(Of GameTile)
         Dim myControlToFind As Label
-        Exit Sub
         For i As Integer = 0 To 39
             controlString = "lab" + i.ToString()
             myControlToFind = Me.Controls.Find(controlString, True).FirstOrDefault()
-            If sim.board.ElementAt(i).NumHits < sortedList.ElementAt(10).NumHits Then
-                myControlToFind.BackColor = Color.Red
-            ElseIf sim.board.ElementAt(i).NumHits > sortedList.ElementAt(30).NumHits Then
-                myControlToFind.BackColor = Color.Green
-            Else
-                myControlToFind.BackColor = Color.Yellow
-            End If
             myControlToFind.Text = i.ToString() + Environment.NewLine + (sim.board.ElementAt(i).NumHits * 100 / numSteps).ToString("0.00") + "%"
+            If sim.board.ElementAt(i).NumHits < hitCounts(10) Then
+                myControlToFind.BackColor = Color.Red
+            ElseIf sim.board.ElementAt(i).NumHits < hitCounts(30) Then
+                myControlToFind.BackColor = Color.Yellow
+            Else
+                myControlToFind.BackColor = Color.Chartreuse
+            End If
         Next
 
     End Sub
