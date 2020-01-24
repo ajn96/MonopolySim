@@ -66,12 +66,14 @@ Partial Class InputGUI
         Me.Lab32 = New System.Windows.Forms.Label()
         Me.Lab31 = New System.Windows.Forms.Label()
         Me.Lab39 = New System.Windows.Forms.Label()
+        Me.simProgress = New System.Windows.Forms.ProgressBar()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'runButton
         '
-        Me.runButton.Location = New System.Drawing.Point(350, 362)
-        Me.runButton.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.runButton.Location = New System.Drawing.Point(350, 375)
+        Me.runButton.Margin = New System.Windows.Forms.Padding(6)
         Me.runButton.Name = "runButton"
         Me.runButton.Size = New System.Drawing.Size(268, 116)
         Me.runButton.TabIndex = 0
@@ -81,7 +83,7 @@ Partial Class InputGUI
         'numLab
         '
         Me.numLab.AutoSize = True
-        Me.numLab.Location = New System.Drawing.Point(284, 281)
+        Me.numLab.Location = New System.Drawing.Point(286, 281)
         Me.numLab.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.numLab.Name = "numLab"
         Me.numLab.Size = New System.Drawing.Size(123, 25)
@@ -90,8 +92,8 @@ Partial Class InputGUI
         '
         'numMoves
         '
-        Me.numMoves.Location = New System.Drawing.Point(418, 275)
-        Me.numMoves.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.numMoves.Location = New System.Drawing.Point(421, 281)
+        Me.numMoves.Margin = New System.Windows.Forms.Padding(6)
         Me.numMoves.Name = "numMoves"
         Me.numMoves.Size = New System.Drawing.Size(197, 29)
         Me.numMoves.TabIndex = 2
@@ -547,11 +549,30 @@ Partial Class InputGUI
         Me.Lab39.TabIndex = 36
         Me.Lab39.Text = "Label43"
         '
+        'simProgress
+        '
+        Me.simProgress.Location = New System.Drawing.Point(282, 579)
+        Me.simProgress.Name = "simProgress"
+        Me.simProgress.Size = New System.Drawing.Size(478, 36)
+        Me.simProgress.TabIndex = 46
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(177, 581)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(96, 25)
+        Me.Label1.TabIndex = 47
+        Me.Label1.Text = "Progress:"
+        '
         'InputGUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(950, 846)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.simProgress)
         Me.Controls.Add(Me.Lab30)
         Me.Controls.Add(Me.Lab38)
         Me.Controls.Add(Me.Lab37)
@@ -596,7 +617,7 @@ Partial Class InputGUI
         Me.Controls.Add(Me.numMoves)
         Me.Controls.Add(Me.numLab)
         Me.Controls.Add(Me.runButton)
-        Me.Margin = New System.Windows.Forms.Padding(6, 6, 6, 6)
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "InputGUI"
         Me.Text = "MonopolySim"
         Me.ResumeLayout(False)
@@ -648,4 +669,6 @@ Partial Class InputGUI
     Friend WithEvents Lab32 As Label
     Friend WithEvents Lab31 As Label
     Friend WithEvents Lab39 As Label
+    Friend WithEvents simProgress As ProgressBar
+    Friend WithEvents Label1 As Label
 End Class
