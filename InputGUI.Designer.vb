@@ -68,6 +68,7 @@ Partial Class InputGUI
         Me.Lab39 = New System.Windows.Forms.Label()
         Me.simProgress = New System.Windows.Forms.ProgressBar()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.RealTimeUpdates = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'runButton
@@ -566,11 +567,22 @@ Partial Class InputGUI
         Me.Label1.TabIndex = 47
         Me.Label1.Text = "Progress:"
         '
+        'RealTimeUpdates
+        '
+        Me.RealTimeUpdates.AutoSize = True
+        Me.RealTimeUpdates.Location = New System.Drawing.Point(182, 521)
+        Me.RealTimeUpdates.Name = "RealTimeUpdates"
+        Me.RealTimeUpdates.Size = New System.Drawing.Size(204, 29)
+        Me.RealTimeUpdates.TabIndex = 48
+        Me.RealTimeUpdates.Text = "Real Time Updates"
+        Me.RealTimeUpdates.UseVisualStyleBackColor = True
+        '
         'InputGUI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(950, 846)
+        Me.Controls.Add(Me.RealTimeUpdates)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.simProgress)
         Me.Controls.Add(Me.Lab30)
@@ -671,4 +683,5 @@ Partial Class InputGUI
     Friend WithEvents Lab39 As Label
     Friend WithEvents simProgress As ProgressBar
     Friend WithEvents Label1 As Label
+    Friend WithEvents RealTimeUpdates As CheckBox
 End Class

@@ -8,6 +8,7 @@ Public Class InputGUI
     Private Sub runButton_Click(sender As Object, e As EventArgs) Handles runButton.Click
 
         Dim simThread As Thread = New Thread(AddressOf RunSimWork)
+        simThread.IsBackground = True
         runButton.Enabled = False
         simThread.Start()
 
@@ -35,7 +36,12 @@ Public Class InputGUI
                 oldProgress = progress
                 Me.Invoke(Sub() UpdateProgress(progress))
             End If
-
+            If RealTimeUpdates.Checked Then
+                System.Threading.Thread.Sleep(1)
+            End If
+            If sim.StepCount Mod 100 = 0 Then
+                Me.Invoke(Sub() UpdateTextBoxes())
+            End If
         End While
 
         Me.Invoke(Sub() UpdateTextBoxes())
@@ -65,7 +71,7 @@ Public Class InputGUI
         For i As Integer = 0 To 39
             controlString = "lab" + i.ToString()
             myControlToFind = Me.Controls.Find(controlString, True).FirstOrDefault()
-            myControlToFind.Text = i.ToString() + Environment.NewLine + (sim.board.ElementAt(i).NumHits * 100 / numSteps).ToString("0.00") + "%"
+            myControlToFind.Text = i.ToString() + Environment.NewLine + (sim.board.ElementAt(i).NumHits * 100 / sim.StepCount).ToString("0.00") + "%"
             If sim.board.ElementAt(i).NumHits < hitCounts(8) Then
                 myControlToFind.BackColor = Color.Red
             ElseIf sim.board.ElementAt(i).NumHits < hitCounts(32) Then
